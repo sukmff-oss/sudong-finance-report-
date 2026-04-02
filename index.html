@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -51,15 +50,220 @@
   .week-table td { color:#e2e8f0; }
   .up { color:#f87171; }
   .dn { color:#34d399; }
-</style>
+
+  /* ========== 國際頭條樣式 ========== */
+  .headlines-section { margin-bottom:20px; }
+  .headlines-section h2 { font-size:1.3rem; margin-bottom:16px; color:#f8fafc; }
+  .news-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .news-card {
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px; overflow:hidden; display:flex; flex-direction:column;
+    transition:transform 0.2s,box-shadow 0.2s; position:relative;
+  }
+  .news-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+  .news-thumb {
+    width:100%; height:140px; object-fit:cover; display:block;
+    background:linear-gradient(135deg,#1e293b,#334155);
+  }
+  .news-thumb-placeholder {
+    width:100%; height:140px; display:flex; align-items:center; justify-content:center;
+    font-size:2.8rem; background:linear-gradient(135deg,#1e293b,#334155);
+  }
+  .news-video-badge {
+    position:absolute; top:8px; right:8px;
+    background:rgba(239,68,68,0.9); color:#fff; border-radius:50%;
+    width:32px; height:32px; display:flex; align-items:center; justify-content:center;
+    font-size:0.75rem; font-weight:700;
+  }
+  .news-label {
+    display:inline-block; padding:3px 10px; border-radius:999px;
+    font-size:0.75rem; font-weight:700; margin:10px 12px 4px;
+  }
+  .label-bbc { background:rgba(96,27,109,0.4); color:#e9bfff; }
+  .label-cnn { background:rgba(203,33,41,0.4); color:#fca5a5; }
+  .label-reuters { background:rgba(255,136,0,0.4); color:#fcd9a0; }
+  .label-ap { background:rgba(0,113,197,0.4); color:#a0d4ff; }
+  .label-ettoday { background:rgba(255,102,0,0.4); color:#ffd0a0; }
+  .label-tvbs { background:rgba(0,153,102,0.4); color:#a0ffcc; }
+  .label-udn { background:rgba(0,84,166,0.4); color:#a0ccff; }
+  .label-bloomberg { background:rgba(0,45,114,0.4); color:#a0c8ff; }
+  .label-yahoo { background:rgba(85,0,153,0.4); color:#d0a0ff; }
+  .label-techcrunch { background:rgba(0,102,51,0.4); color:#a0ffcc; }
+  .label-verge { background:rgba(200,0,0,0.4); color:#ffa0a0; }
+  .label-cna { background:rgba(0,51,102,0.4); color:#a0d4ff; }
+  .label-general { background:rgba(100,116,139,0.4); color:#c8d3e0; }
+  .news-title {
+    font-size:0.9rem; font-weight:700; color:#f1f5f9; line-height:1.4;
+    padding:0 12px 8px; flex-grow:1;
+  }
+  .news-link {
+    display:block; padding:8px 12px 12px; color:#38bdf8; font-size:0.82rem;
+    text-decoration:none; font-weight:600;
+  }
+  .news-link:hover { color:#7dd3fc; text-decoration:underline; }
+  .section-sep { border:none; border-top:1px solid rgba(255,255,255,0.08); margin:20px 0; }
+
+  @media(max-width:600px){
+    .news-grid { grid-template-columns:1fr 1fr; gap:10px; }
+    .news-thumb,.news-thumb-placeholder { height:110px; }
+    .news-title { font-size:0.82rem; }
+  }
+  @media(max-width:380px){
+    .news-grid { grid-template-columns:1fr; }
+  }
+
 </head>
 <body>
 <div class="wrap">
 
   <div class="card">
     <h1>🐱‍⬛ 蘇董國際財經早報 - 持續追蹤中..</h1>
-    <div class="muted">更新時間：2026-04-02 09:30 ｜ 日期：2026-04-03（週五）｜ ⚠️ 本報告為 Cron 自動產生</div>
+    <div class="muted">更新時間：2026-04-02 21:25 ｜ 日期：2026-04-03（週五）｜ ⚠️ 本報告為 Cron 自動產生</div>
   </div>
+
+  <div class="card">
+    <h2>🌏 國際頭條</h2>
+    <div style="font-size:0.92rem; line-height:1.8; background:rgba(255,255,255,0.04); border-radius:12px; padding:16px;">
+
+      <div style="margin-bottom:12px;">
+        <div style="color:#FFD700; font-weight:700; margin-bottom:6px;">🌍 國際</div>
+        <div>• <strong>BBC：</strong>川普預告數週內對伊朗實施「極度猛烈」打擊，德黑蘭警告將發動更廣泛反擊</div>
+        <div>• <strong>BBC：</strong>NASA 阿提米絲二號順利發射，載人繞月任務展開</div>
+        <div>• <strong>BBC：</strong>印尼外海規模7.4地震，至少1死，海嘯警報已解除</div>
+      </div>
+
+      <div style="margin-bottom:12px;">
+        <div style="color:#f8fafc; font-weight:700; margin-bottom:6px;">💰 財經</div>
+        <div>• <strong>中央社：</strong>川普揚言加強打擊伊朗，國際油價升至110美元關卡</div>
+        <div>• <strong>聯合報：</strong>台積電鉅額交易溢價10.8%，ADR盤前卻重挫4%</div>
+        <div>• <strong>聯合報：</strong>川普再加碼！台指期夜盤翻黑，專家示警「死貓跳」恐回測3萬點</div>
+      </div>
+
+      <div style="margin-bottom:12px;">
+        <div style="color:#38bdf8; font-weight:700; margin-bottom:6px;">💻 科技</div>
+        <div>• <strong>TechCrunch：</strong>SpaceX 擬於4/21召開IPO分析師會議，公開上市腳步近了</div>
+        <div>• <strong>The Verge：</strong>蘋果「有毒」健身部門主管 Jay Blahnik 宣布退休，13年任期結束</div>
+        <div>• <strong>The Verge：</strong>亞馬遜傳出收購 Globalstar，蘋果早有持股</div>
+      </div>
+
+      <div>
+        <div style="color:#f87171; font-weight:700; margin-bottom:6px;">🇹🇼 台灣</div>
+        <div>• <strong>ETtoday：</strong>荷莫茲海峽「付錢才放行」！伊朗收人民幣，油輪一次恐噴200萬美元</div>
+        <div>• <strong>ETtoday：</strong>快訊／台南楠西區規模4.1地震，最大震度4級</div>
+        <div>• <strong>中央社：</strong>伊朗秘密重建自殺無人機部隊，中、港公司供零件</div>
+        <div>• <strong>聯合報：</strong>台美ART貿易協議，農業部：已排除美農產品SSG關稅，產業影響有限</div>
+      </div>
+
+    </div>
+    <div class="muted" style="margin-top:8px; font-size:0.82rem;">📌 新聞來源：BBC、中央社（CNA）、ETtoday、聯合報（UDN）、TechCrunch、The Verge｜ 抓取時間：2026-04-02 21:25</div>
+  </div>
+
+  <!-- 國際頭條區塊 -->
+  <div class="card headlines-section">
+    <h2>🌐 國際頭條</h2>
+    <div class="news-grid">
+
+      <!-- BBC 國際 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">🚀</div>
+        <div class="news-label label-bbc">BBC</div>
+        <div class="news-title">美伊緊張升級！川普警告：將對伊朗發動「極度強硬」打擊</div>
+        <a class="news-link" href="https://www.bbc.com/news/live/c36r5p1l7w3t" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- BBC 財經 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">📉</div>
+        <div class="news-label label-bbc">BBC</div>
+        <div class="news-title">油價飆漲、股市暴跌！川普威脅擴大伊朗攻擊致市場震盪</div>
+        <a class="news-link" href="https://www.bbc.com/news/articles/ce8lzd4v7zdo" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- BBC 科技 -->
+      <div class="news-card">
+        <div class="news-video-badge">▶</div>
+        <div class="news-thumb-placeholder">🌕</div>
+        <div class="news-label label-bbc">BBC</div>
+        <div class="news-title">NASA阿提米絲二號發射成功！太空人進入繞月軌道</div>
+        <a class="news-link" href="https://www.bbc.com/news/videos/c05d6pprdleo" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- BBC 國際 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">💰</div>
+        <div class="news-label label-bbc">BBC</div>
+        <div class="news-title">馬斯克SpaceX傳將上市估值1兆美元　有望成地表首位兆萬富翁</div>
+        <a class="news-link" href="https://www.bbc.com/news/articles/c2k35lg92dpo" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- BBC 財經 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">📋</div>
+        <div class="news-label label-bbc">BBC</div>
+        <div class="news-title">川普關稅滿周年：四大面向重塑全球經濟版圖</div>
+        <a class="news-link" href="https://www.bbc.com/news/articles/c79j1rd92ypo" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- BBC 國際 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">🌋</div>
+        <div class="news-label label-bbc">BBC</div>
+        <div class="news-title">印尼外海規模7.4地震　海嘯警報已發布（更新：已解除）</div>
+        <a class="news-link" href="https://www.bbc.com/news/articles/cn53krrrr24o" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- The Verge 科技 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">🍎</div>
+        <div class="news-label label-verge">The Verge</div>
+        <div class="news-title">Apple健身部門主管醜聞纏身宣布退休　任職13年爭議落幕</div>
+        <a class="news-link" href="https://www.theverge.com/" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- The Verge 科技 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">🛰️</div>
+        <div class="news-label label-verge">The Verge</div>
+        <div class="news-title">SpaceX IPO在即！分析師日定4/21　上市傳言正式升級</div>
+        <a class="news-link" href="https://www.theverge.com/" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- ETtoday 台灣 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">🛢️</div>
+        <div class="news-label label-ettoday">ETtoday</div>
+        <div class="news-title">荷莫茲海峽通行費出爐！伊朗收人民幣放行　油輪一次恐噴200萬美元</div>
+        <a class="news-link" href="https://www.ettoday.net/news/20260402/3143151.htm" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- ETtoday 台灣 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">⚖️</div>
+        <div class="news-label label-ettoday">ETtoday</div>
+        <div class="news-title">綠委點名台塑掀塑膠亂象　士檢火速分案偵辦</div>
+        <a class="news-link" href="https://www.ettoday.net/news/20260402/3143162.htm" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- 中央社 台灣 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">🏛️</div>
+        <div class="news-label label-cna">中央社</div>
+        <div class="news-title">台灣國會改革持續推進　朝野攻防焦點一覽</div>
+        <a class="news-link" href="https://www.cna.com.tw/" target="_blank">閱讀全文 →</a>
+      </div>
+
+      <!-- Yahoo Finance 財經 -->
+      <div class="news-card">
+        <div class="news-thumb-placeholder">📊</div>
+        <div class="news-label label-yahoo">Yahoo Finance</div>
+        <div class="news-title">美股後市多空觀望　科技股財報季來臨前夕市場謹慎</div>
+        <a class="news-link" href="https://finance.yahoo.com/" target="_blank">閱讀全文 →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="section-sep">
 
   <div class="card">
     <h2>📈 金融行情（與昨日比較）</h2>
