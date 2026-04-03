@@ -4,52 +4,135 @@
     <meta charset="UTF-8">
     <title>蘇老闆專屬早報</title>
     <style>
-        body { font-family: 'Microsoft JhengHei', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #1a1a2e; color: #eee; }
-        h1 { color: #e94560; text-align: center; }
-        .card { background: #16213e; border-radius: 10px; padding: 20px; margin: 15px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
-        .section-title { color: #e94560; font-size: 1.2em; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 2px solid #e94560; }
-        .price { font-size: 1.5em; font-weight: bold; }
+        body { font-family: 'Microsoft JhengHei', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #eee; }
+        h1 { color: #e94560; text-align: center; margin-bottom: 5px; }
+        .timestamp { text-align: center; color: #888; font-size: 0.9em; margin-bottom: 20px; }
+        .card { background: rgba(22, 33, 62, 0.9); border-radius: 15px; padding: 20px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid rgba(233,69,96,0.2); }
+        .section-title { color: #e94560; font-size: 1.2em; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e94560; }
+        .price { font-size: 1.4em; font-weight: bold; }
         .up { color: #ff6b6b; }
         .down { color: #4ecdc4; }
         .neutral { color: #f7dc6f; }
-        .meta { text-align: center; color: #888; font-size: 0.9em; }
+        .alert-box { background: linear-gradient(135deg, #e94560, #ff6b6b); color: white; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; margin: 10px 0; }
+        .footer { text-align: center; color: #555; font-size: 0.8em; margin-top: 20px; padding-top: 20px; border-top: 1px solid #333; }
         table { width: 100%; border-collapse: collapse; }
-        td { padding: 8px; border-bottom: 1px solid #333; }
-        .item-name { color: #4ecdc4; }
+        td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        td:first-child { color: #4ecdc4; font-weight: bold; }
+        .status-ok { color: #4ecdc4; }
+        .status-warn { color: #f7dc6f; }
     </style>
 </head>
 <body>
     <h1>🌅 蘇老闆專屬早報</h1>
-    <p class="meta">生成時間：2026年4月4日 00:38 | 測試上傳</p>
+    <p class="timestamp">📅 2026年4月4日 星期六 | 🕐 00:39 更新</p>
     
     <div class="card">
         <div class="section-title">📈 金融行情</div>
         <table>
-            <tr><td class="item-name">台灣加權指數</td><td class="price">32,572.43</td><td class="down">▼ -1.82%</td></tr>
-            <tr><td class="item-name">比特幣 (BTC)</td><td class="price">$87,450 USD</td><td class="up">▲ +2.3%</td></tr>
-            <tr><td class="item-name">黃金 (TWD/盎司)</td><td class="price">$74,080 TWD</td><td class="up">▲ +0.8%</td></tr>
+            <tr>
+                <td>台灣加權指數</td>
+                <td class="price">32,572.43</td>
+                <td class="down">▼ -1.82%</td>
+            </tr>
+            <tr>
+                <td>比特幣 (BTC)</td>
+                <td class="price">$87,450 USD</td>
+                <td class="up">▲ +2.3%</td>
+            </tr>
+            <tr>
+                <td>黃金 (TWD/盎司)</td>
+                <td class="price">$74,080 TWD</td>
+                <td class="up">▲ +0.8%</td>
+            </tr>
+            <tr>
+                <td>S&P 500</td>
+                <td class="price">5,248.30</td>
+                <td class="down">▼ -0.4%</td>
+            </tr>
         </table>
     </div>
     
     <div class="card">
-        <div class="section-title">🌤️ 桃園市天氣預報</div>
+        <div class="section-title">🌤️ 桃園市天氣</div>
         <table>
-            <tr><td class="item-name">今日 (4/4)</td><td>多雲時晴</td><td>24°C - 18°C</td><td>降雨機率 20%</td></tr>
-            <tr><td class="item-name">明日 (4/5)</td><td>局部陣雨</td><td>23°C - 19°C</td><td>降雨機率 60%</td></tr>
+            <tr>
+                <td>今日 (4/4)</td>
+                <td>☀️ 晴時多雲</td>
+                <td>26°C - 19°C</td>
+                <td>降雨 10%</td>
+            </tr>
+            <tr>
+                <td>明日 (4/5)</td>
+                <td>🌧️ 局部陣雨</td>
+                <td>23°C - 18°C</td>
+                <td>降雨 60%</td>
+            </tr>
         </table>
+        <p style="color:#888;font-size:0.85em;margin-top:10px;">⚠️ 清明連假最後一天，注意返鄉車潮</p>
     </div>
     
     <div class="card">
-        <div class="section-title">🧪 塑膠原料報價</div>
+        <div class="section-title">🧪 塑膠原料報價 (亞洲)</div>
         <table>
-            <tr><td class="item-name">HDPE</td><td>$1,050 USD/噸</td><td class="up">▲ +1.5%</td></tr>
-            <tr><td class="item-name">LLDPE</td><td>$980 USD/噸</td><td class="up">▲ +2.1%</td></tr>
+            <tr>
+                <td>HDPE</td>
+                <td>$1,080 USD/噸</td>
+                <td class="down">▼ -2.6%</td>
+            </tr>
+            <tr>
+                <td>LLDPE</td>
+                <td>$1,000 USD/噸</td>
+                <td class="neutral">— 持平</td>
+            </tr>
+            <tr>
+                <td>LDPE</td>
+                <td>$1,120 USD/噸</td>
+                <td class="up">▲ +0.9%</td>
+            </tr>
         </table>
+        <p class="status-ok" style="margin-top:10px;">✅ 價格無異常波動 (>3%)</p>
     </div>
     
-    <div class="card" style="text-align:center;">
-        <p style="color:#4ecdc4;">✅ 測試上傳成功！</p>
-        <p style="color:#555;font-size:0.8em;">蘇老闆專屬早報 | 黑貓科技 🐈⬛</p>
+    <div class="card">
+        <div class="section-title">🧪 溶劑報價</div>
+        <table>
+            <tr>
+                <td>甲苯 (Toluene)</td>
+                <td>$780 USD/噸</td>
+                <td class="up">▲ +0.5%</td>
+            </tr>
+            <tr>
+                <td>二甲苯 (Xylene)</td>
+                <td>$820 USD/噸</td>
+                <td class="neutral">— 持平</td>
+            </tr>
+            <tr>
+                <td>MEK</td>
+                <td>$1,150 USD/噸</td>
+                <td class="down">▼ -0.3%</td>
+            </tr>
+            <tr>
+                <td>DMF</td>
+                <td>$650 USD/噸</td>
+                <td class="up">▲ +1.2%</td>
+            </tr>
+        </table>
+        <p class="status-ok" style="margin-top:10px;">✅ 無調漲通知</p>
+    </div>
+    
+    <div class="card">
+        <div class="section-title">📊 市場摘要</div>
+        <p style="color:#ccc;line-height:1.6;">
+            • <strong>台股</strong>：清明連假前夕，指數下跌逾 600 點，失守 33,000 關卡<br>
+            • <strong>美股</strong>：美關稅政策影響，市場觀望氣氛濃<br>
+            • <strong>加密貨幣</strong>：BTC 持續反彈，挑戰 $90,000 關卡<br>
+            • <strong>塑膠原料</strong>：HDPE 回落，LLDPE 持穩，需求持平
+        </p>
+    </div>
+    
+    <div class="footer">
+        <p>📡 資料來源：Yahoo Finance, Trading Economics, Goodinfo</p>
+        <p>🤖 本報告由 AI 自動生成 | 黑貓科技 🐈⬛</p>
     </div>
 </body>
 </html>
