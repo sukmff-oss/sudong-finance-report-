@@ -1,138 +1,382 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <title>蘇老闆專屬早報</title>
-    <style>
-        body { font-family: 'Microsoft JhengHei', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #eee; }
-        h1 { color: #e94560; text-align: center; margin-bottom: 5px; }
-        .timestamp { text-align: center; color: #888; font-size: 0.9em; margin-bottom: 20px; }
-        .card { background: rgba(22, 33, 62, 0.9); border-radius: 15px; padding: 20px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid rgba(233,69,96,0.2); }
-        .section-title { color: #e94560; font-size: 1.2em; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e94560; }
-        .price { font-size: 1.4em; font-weight: bold; }
-        .up { color: #ff6b6b; }
-        .down { color: #4ecdc4; }
-        .neutral { color: #f7dc6f; }
-        .alert-box { background: linear-gradient(135deg, #e94560, #ff6b6b); color: white; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; margin: 10px 0; }
-        .footer { text-align: center; color: #555; font-size: 0.8em; margin-top: 20px; padding-top: 20px; border-top: 1px solid #333; }
-        table { width: 100%; border-collapse: collapse; }
-        td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        td:first-child { color: #4ecdc4; font-weight: bold; }
-        .status-ok { color: #4ecdc4; }
-        .status-warn { color: #f7dc6f; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蘇董早報 2026-04-03</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; background: #f4f4f8; color: #1a1a2e; }
+  .container { max-width: 900px; margin: 0 auto; padding: 16px; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg,#1a1a2e,#16213e); color: #fff; padding: 28px 24px; border-radius: 12px; margin-bottom: 20px; }
+  .header h1 { font-size: 1.8em; font-weight: 700; letter-spacing: 1px; }
+  .header .subtitle { color: #aab; font-size: 0.9em; margin-top: 4px; }
+  .header .date-badge { display: inline-block; background: #e94560; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; margin-bottom: 8px; }
+
+  /* Breaking banner */
+  .breaking { background: #e94560; color: #fff; padding: 10px 16px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; font-size: 0.95em; }
+
+  /* Section */
+  .section-title { font-size: 1.1em; color: #e94560; margin: 24px 0 12px 0; padding-left: 10px; border-left: 4px solid #e94560; font-weight: 700; }
+
+  /* Grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+  /* Card */
+  .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.2s; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+  /* Video card */
+  .card.video { border: 2px solid #e94560; }
+  .card.video .play-badge { position: absolute; top: 10px; left: 10px; background: #e94560; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 0.75em; font-weight: 700; z-index: 2; display: flex; align-items: center; gap: 4px; }
+  .card.video .play-badge::before { content: '▶'; font-size: 0.7em; }
+
+  /* Card image */
+  .card-img-wrap { position: relative; }
+  .card-img { width: 100%; height: 160px; object-fit: cover; display: block; background: #ddd; }
+  .card-img-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg,#1a1a2e,#16213e); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2em; }
+
+  /* Card body */
+  .card-body { padding: 14px; }
+  .card-body h3 { font-size: 0.95em; font-weight: 600; line-height: 1.5; margin-bottom: 6px; color: #1a1a2e; }
+  .card-body p { font-size: 0.82em; color: #555; line-height: 1.5; margin-bottom: 8px; }
+  .card-body .source { font-size: 0.75em; color: #888; }
+  .card-body .source span { background: #eef; color: #55a; padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
+
+  /* Link style */
+  a { color: inherit; text-decoration: none; }
+
+  /* Video text card (no thumbnail) */
+  .video-text-card { background: #fff; border-radius: 10px; padding: 16px; border-left: 5px solid #e94560; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; }
+  .video-text-card .play-icon { font-size: 1.8em; color: #e94560; flex-shrink: 0; line-height: 1; }
+  .video-text-card .video-info h4 { font-size: 0.95em; font-weight: 600; margin-bottom: 4px; color: #1a1a2e; }
+  .video-text-card .video-info p { font-size: 0.82em; color: #555; margin-bottom: 6px; }
+  .video-text-card .video-info .source { font-size: 0.75em; color: #888; }
+  .video-text-card .video-info .source span { background: #eef; color: #55a; padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
+
+  /* Two col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; color: #aaa; font-size: 0.8em; }
+
+  /* Hot badge */
+  .hot { background: #ff4757; color: #fff; font-size: 0.7em; padding: 2px 6px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+</style>
 </head>
 <body>
-    <h1>🌅 蘇老闆專屬早報</h1>
-    <p class="timestamp">📅 2026年4月4日 星期六 | 🕐 00:39 更新</p>
-    
-    <div class="card">
-        <div class="section-title">📈 金融行情</div>
-        <table>
-            <tr>
-                <td>台灣加權指數</td>
-                <td class="price">32,572.43</td>
-                <td class="down">▼ -1.82%</td>
-            </tr>
-            <tr>
-                <td>比特幣 (BTC)</td>
-                <td class="price">$87,450 USD</td>
-                <td class="up">▲ +2.3%</td>
-            </tr>
-            <tr>
-                <td>黃金 (TWD/盎司)</td>
-                <td class="price">$74,080 TWD</td>
-                <td class="up">▲ +0.8%</td>
-            </tr>
-            <tr>
-                <td>S&P 500</td>
-                <td class="price">5,248.30</td>
-                <td class="down">▼ -0.4%</td>
-            </tr>
-        </table>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">📅 2026 年 4 月 3 日</div>
+    <h1>🐈‍⬛ 蘇董早報</h1>
+    <p class="subtitle">黑貓科技 · AI 執行長整理 · 蘇老闆專屬</p>
+  </div>
+
+  <!-- Breaking -->
+  <div class="breaking">🔥 頭條：美伊戰爭滿月 · 油價飆破 110 美元 · 荷莫茲海峽危機升級</div>
+
+  <!-- ===== 中東戰爭 ===== -->
+  <div class="section-title">🌍 中東戰爭（美伊衝突）</div>
+
+  <div class="two-col">
+    <!-- BBC Video: Ros Atkins 分析 -->
+    <a href="https://www.bbc.com/news/videos/c1d9nnqqld0o" target="_blank" rel="noopener">
+      <div class="card video">
+        <div class="card-img-wrap">
+          <div class="play-badge">BBC 影片</div>
+          <img src="https://www.bbc.com/news/articles/c1w4pdexxqpo--og-img.jpg" alt="Iran war video" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="card-img-placeholder" style="display:none;">▶</div>
+        </div>
+        <div class="card-body">
+          <h3>Ros Atkins 分析：美伊戰爭代價幾何？</h3>
+          <p>BBC 分析編輯 Ros Atkins 深入解析美國在美伊戰爭中的支出與透明度問題。</p>
+          <div class="source"><span>BBC News</span> 8 小時前</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- BBC Video: Trump 對伊deadline -->
+    <a href="https://www.bbc.com/news/videos/ce8jz0239jxo" target="_blank" rel="noopener">
+      <div class="card video">
+        <div class="card-img-wrap">
+          <div class="play-badge">BBC 影片</div>
+          <img src="https://www.bbc.com/news/articles/ce843ge47z4o--og-img.jpg" alt="Trump Iran video" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="card-img-placeholder" style="display:none;">▶</div>
+        </div>
+        <div class="card-body">
+          <h3>川普對伊朗戰事屢改期限　白宮記者會解析</h3>
+          <p>BBC 首席國際記者分析川普總統在伊朗問題上不斷變動的表態與策略。</p>
+          <div class="source"><span>BBC News</span> 最新</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 伊朗戰爭文字報導卡片 -->
+  <div class="grid">
+    <a href="https://www.bbc.com/news/articles/c1w4pdexxqpo" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>伊朗兩大鋼鐵廠遭空襲停產　經濟命脈重創</h3>
+          <p>伊朗兩大鋼鐵廠已完全停產，重啟估需六個月至一年。伊朗為全球第 10 大鋼鐵生產國，停產將對供應鏈造成重大衝擊。</p>
+          <div class="source"><span>BBC</span> 9 小時前</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/aopl/202604030020.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>川普與伊朗互放狠話　全球急盼荷莫茲海峽重啟</h3>
+          <p>美伊雙方持續隔空嗆聲，英國召集約 40 國緊急磋商荷莫茲海峽危機，要求立即無條件重開這條全球最重要石油運輸通道。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/aopl/202604030006.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>川普矢言持續攻擊伊朗　WTI 油價漲逾 11%</h3>
+          <p>川普揚言加強打擊伊朗，國際油價應聲飆升至 110 美元關卡，能源市場劇烈震盪。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/aopl/202604030015.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>澤倫斯基願傳授黑海經驗　協助中東重啟荷莫茲海峽</h3>
+          <p>烏克蘭總統澤倫斯基表示，願意將黑海航行經驗分享給中東，協助恢復荷莫茲海峽暢通。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 伊朗人民報導 -->
+  <div class="video-text-card">
+    <div class="play-icon">▶</div>
+    <div class="video-info">
+      <h4>'I haven't slept for days': 伊朗民眾描述一個月戰事下的絕望</h4>
+      <p>德黑蘭民眾向 BBC 描述空襲擴大、經濟惡化與對政府鎮壓的恐懼。戰爭已持續一個月，平民處境日益艱難。</p>
+      <div class="source"><span>BBC News</span> <a href="https://www.bbc.com/news/articles/crm1vj941x9o" target="_blank" rel="noopener" style="color:#55a;">閱讀全文 →</a></div>
     </div>
-    
-    <div class="card">
-        <div class="section-title">🌤️ 桃園市天氣</div>
-        <table>
-            <tr>
-                <td>今日 (4/4)</td>
-                <td>☀️ 晴時多雲</td>
-                <td>26°C - 19°C</td>
-                <td>降雨 10%</td>
-            </tr>
-            <tr>
-                <td>明日 (4/5)</td>
-                <td>🌧️ 局部陣雨</td>
-                <td>23°C - 18°C</td>
-                <td>降雨 60%</td>
-            </tr>
-        </table>
-        <p style="color:#888;font-size:0.85em;margin-top:10px;">⚠️ 清明連假最後一天，注意返鄉車潮</p>
+  </div>
+
+  <!-- ===== 科技 ===== -->
+  <div class="section-title">💻 科技</div>
+
+  <div class="grid">
+    <a href="https://www.theverge.com/" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>Apple 全面切斷俄羅斯 App Store　因制裁關閉所有服務</h3>
+          <p>Apple Ireland 子公司因違反對俄制裁遭英國政府罰款後，宣布停止俄羅斯用戶的 App Store 支付功能，用戶已無法購買新 App 或續訂服務。</p>
+          <div class="source"><span>The Verge</span> 最新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://techcrunch.com/" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>Build Mode：創業初期生存指南　無糖衣掩蓋的實戰建議</h3>
+          <p>TechCrunch 新 podcast 節目「Build Mode」，由創業前輩分享從零打造公司的真實掙扎與戰術建議，適合早期創業者。</p>
+          <div class="source"><span>TechCrunch</span> 4/2 更新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/ait/202604020116.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>傳亞馬遜擬併購 Globalstar　劍指馬斯克星鏈</h3>
+          <p>市場傳出亞馬遜正評估併購衛星公司 Globalstar，以強化其衛星網路布局，與馬斯克的 Starlink 正面競爭。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/ait/202604010348.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>熱門軟體 Axios 疑遭北韓網攻　衝擊範圍恐擴大</h3>
+          <p>廣泛使用的新聞訂閱軟體 Axios 傳遭北韓駭客組織入侵，資安專家警告影響範圍可能進一步擴大。</p>
+          <div class="source"><span>中央社</span> 4/1</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ===== 太空/NASA Artemis II ===== -->
+  <div class="section-title">🚀 太空探索</div>
+
+  <div class="two-col">
+    <!-- BBC Live: Artemis II -->
+    <a href="https://www.bbc.com/news/live/c4g4ygw0r02t" target="_blank" rel="noopener">
+      <div class="card video">
+        <div class="card-img-wrap">
+          <div class="play-badge">BBC LIVE</div>
+          <img src="https://www.bbc.com/news/articles/c7vqre914pzo--og-img.jpg" alt="Artemis II" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="card-img-placeholder" style="display:none;">🚀</div>
+        </div>
+        <div class="card-body">
+          <h3>🚀 Artemis II 成功脫離地球軌道　展開 10 天繞月任務</h3>
+          <p>NASA 宣稱引擎燃燒「完美無瑕」，四名太空人正朝向月球背面進發，為 1972 年以來人類首次離開地球軌道。</p>
+          <div class="source"><span>BBC 直播</span> 即時</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/ait/202604020025.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>NASA 火箭歷史性升空　啟動繞月任務[影]</h3>
+          <p>阿提米絲二號（Artemis II）成功發射，四名太空人進入地球軌道，展開為期 10 天的繞月飛行任務，這是人類重返月球的關鍵一步。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ===== 國際 ===== -->
+  <div class="section-title">🌏 國際</div>
+
+  <div class="grid">
+    <a href="https://www.bbc.com/news/articles/c1782nk0018o" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>緬甸政變領袖將成總統　發動內戰後掌控全局</h3>
+          <p>緬甸軍政府領袖敏昂萊（Min Aung Hlaing）即將被新當選的議會選為總統，正式結束由他一手發動的政變後過渡期。</p>
+          <div class="source"><span>BBC</span> 5 小時前</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.bbc.com/news/articles/c3ex59yy4j2o" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>Blake Lively 控告 Baldoni 騷擾案　法官駁回多數指控</h3>
+          <p>法官駁回 Blake Lively 多項指控，但保留三項申訴，民事審判將於下月展開，此案好萊塢矚目。</p>
+          <div class="source"><span>BBC</span> 4 小時前</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.bbc.com/news/articles/cpvxj4jzvvvo" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>荷蘭珠寶竊案　逾一年後尋回古金色頭盔</h3>
+          <p>荷蘭一博物館價值連城的古金色頭盔及三只金手鐲於去年 1 月被盜，警方一年後尋回頭盔，但仍有一只金手鐲下落不明。</p>
+          <div class="source"><span>BBC</span> 12 小時前</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.bbc.com/news/articles/cje4l98wjzwo" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>印度藝術紀錄！19 世紀畫作拍賣 1,790 萬美元</h3>
+          <p>一幅 19 世紀印度 iconic 畫作在拍賣會上以 1,790 萬美元創下印度藝術拍賣新紀錄，震驚藝術市場。</p>
+          <div class="source"><span>BBC</span> 15 小時前</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Myanmar video analysis -->
+  <div class="video-text-card">
+    <div class="play-icon">▶</div>
+    <div class="video-info">
+      <h4>誰是緬甸新總統？政變領袖敏昂萊的崛起之路</h4>
+      <p>BBC 影片解析：敏昂萊在成為緬甸總統前的最後一場閱兵儀式，以及他如何從軍方将领走向權力巔峰。</p>
+      <div class="source"><span>BBC News</span> <a href="https://www.bbc.com/news/videos/ckg0lnnplxko" target="_blank" rel="noopener" style="color:#55a;">觀看影片 →</a></div>
     </div>
-    
-    <div class="card">
-        <div class="section-title">🧪 塑膠原料報價 (亞洲)</div>
-        <table>
-            <tr>
-                <td>HDPE</td>
-                <td>$1,080 USD/噸</td>
-                <td class="down">▼ -2.6%</td>
-            </tr>
-            <tr>
-                <td>LLDPE</td>
-                <td>$1,000 USD/噸</td>
-                <td class="neutral">— 持平</td>
-            </tr>
-            <tr>
-                <td>LDPE</td>
-                <td>$1,120 USD/噸</td>
-                <td class="up">▲ +0.9%</td>
-            </tr>
-        </table>
-        <p class="status-ok" style="margin-top:10px;">✅ 價格無異常波動 (>3%)</p>
-    </div>
-    
-    <div class="card">
-        <div class="section-title">🧪 溶劑報價</div>
-        <table>
-            <tr>
-                <td>甲苯 (Toluene)</td>
-                <td>$780 USD/噸</td>
-                <td class="up">▲ +0.5%</td>
-            </tr>
-            <tr>
-                <td>二甲苯 (Xylene)</td>
-                <td>$820 USD/噸</td>
-                <td class="neutral">— 持平</td>
-            </tr>
-            <tr>
-                <td>MEK</td>
-                <td>$1,150 USD/噸</td>
-                <td class="down">▼ -0.3%</td>
-            </tr>
-            <tr>
-                <td>DMF</td>
-                <td>$650 USD/噸</td>
-                <td class="up">▲ +1.2%</td>
-            </tr>
-        </table>
-        <p class="status-ok" style="margin-top:10px;">✅ 無調漲通知</p>
-    </div>
-    
-    <div class="card">
-        <div class="section-title">📊 市場摘要</div>
-        <p style="color:#ccc;line-height:1.6;">
-            • <strong>台股</strong>：清明連假前夕，指數下跌逾 600 點，失守 33,000 關卡<br>
-            • <strong>美股</strong>：美關稅政策影響，市場觀望氣氛濃<br>
-            • <strong>加密貨幣</strong>：BTC 持續反彈，挑戰 $90,000 關卡<br>
-            • <strong>塑膠原料</strong>：HDPE 回落，LLDPE 持穩，需求持平
-        </p>
-    </div>
-    
-    <div class="footer">
-        <p>📡 資料來源：Yahoo Finance, Trading Economics, Goodinfo</p>
-        <p>🤖 本報告由 AI 自動生成 | 黑貓科技 🐈⬛</p>
-    </div>
+  </div>
+
+  <!-- ===== 台灣 ===== -->
+  <div class="section-title">🇹🇼 台灣</div>
+
+  <div class="grid">
+    <a href="https://www.cna.com.tw/news/aipl/202604030032.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>中共 11 機艦船台海周邊活動　國軍嚴密監控</h3>
+          <p>國防部公布中共在台海周邊的軍事動態，國軍持續監控並依規定應處，確保台海安全。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/aipl/202604020322.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>日法關切台海和平　外交部：台灣願為區域繁榮貢獻</h3>
+          <p>日本與法國相繼表達對台海和平穩定的關切，外交部表示台灣將持續與理念相近國家合作，維護區域安全。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/aloc/202604030024.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>0403 地震 2 週年　花蓮逾百棟受損建物逐步修復</h3>
+          <p>0403 大地震兩週年，花蓮受損建物持續修復中，中繼屋尚未住滿，縣府近期將開放候補申請。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/aipl/202604020349.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>中共南海活動頻繁　管碧玲：將強化東沙防禦</h3>
+          <p>中共在南海軍事活動日益頻繁，海委會主委管碧玲表示將強化東沙群島的防禦措施，確保主權安全。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ===== 運動 ===== -->
+  <div class="section-title">⚽ 運動</div>
+
+  <div class="grid">
+    <a href="https://www.cna.com.tw/news/aspt/202604030038.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>老虎伍茲 DUI 車禍被捕　被上銬前稱與總統通話</h3>
+          <p>美國高爾夫名將老虎伍茲涉嫌酒駕（DUI）遭警方逮捕，被上銬前的畫面隨即在網路流傳。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.cna.com.tw/news/aspt/202604020341.aspx" target="_blank" rel="noopener">
+      <div class="card">
+        <div class="card-body">
+          <h3>古林睿煬中繼 1 局飆 156 公里　火腿奪第 2 勝</h3>
+          <p>台灣投手古林睿煬在日職火腿隊中繼 1 局，飆出 156 公里速球，助球隊搶下本季第 2 勝。</p>
+          <div class="source"><span>中央社</span> 最新</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>🐈‍⬛ 黑貓科技 AI 執行長 | 資料來源：BBC News · CNN · 中央社 · TechCrunch · The Verge</p>
+    <p>資料截至 2026-04-03 10:30 GMT+8 | 若連結失效請通知蘇老闆</p>
+  </div>
+
+</div>
 </body>
 </html>
